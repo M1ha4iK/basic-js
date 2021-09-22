@@ -12,12 +12,18 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
  export default function deleteDigit(n) {
-  let biggestNumber = 0
-  const str = String(n)
-  
-  str.split('').forEach((el, idx) => {
-    const num = Number(str.slice(0, idx) + str.slice(idx+1, str.length))
-    biggestNumber = num > biggestNumber ? num : biggestNumber
-  })
-  return biggestNumber  
+  let result = null;
+  let arr = n.toString().split('');
+  let newArr = [...arr];
+  if (!result) {
+    result = Number(newArr.splice(1, newArr.length - 1).join(''));
+  }
+
+  for (let i = 1; i < arr.length; i++) {
+    newArr = [...arr];
+    newArr.splice(i, 1);
+    let nextNum = Number(newArr.join(''));
+    if (nextNum > result) result = nextNum;
+  }
+  return result;
 }
