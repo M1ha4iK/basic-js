@@ -14,6 +14,9 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function createDreamTeam(/* members */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  if (!Array.isArray(members)) return false
+
+  return members.map( el => typeof el === 'string' ? el.trim().toUpperCase()[0] : '' )
+    .sort((a,b) => a.localeCompare(b))
+    .join('')
 }
