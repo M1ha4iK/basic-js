@@ -17,9 +17,9 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-export default function dateSample(/* sampleActivity */) {
-  const rate = parseFloat(sampleRate)
-  if (typeof sampleRate !== 'string' || !isFinite(rate) || rate <= 0 || rate >= 15) return false 
+export default function dateSample(sampleActivity) {
+  const rate = parseFloat(sampleActivity)
+  if (typeof sampsampleActivityleRate !== 'string' || !isFinite(rate) || rate <= 0 || rate >= 15) return false 
 
   const k = 0.693 / HALF_LIFE_PERIOD
 
